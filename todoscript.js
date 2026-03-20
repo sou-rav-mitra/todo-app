@@ -13,11 +13,13 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
 });
 
 // Load tasks from localStorage
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+const username = localStorage.getItem("username");
+const taskKey = `tasks_${username}`;
+let tasks = JSON.parse(localStorage.getItem(taskKey)) || [];
 let currentFilter = "all";
 
 function saveTasks() {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
+  localStorage.setItem(taskKey, JSON.stringify(tasks));
 }
 
 function renderTasks() {
