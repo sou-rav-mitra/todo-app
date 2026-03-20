@@ -1,0 +1,367 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f1525, #24205a, #171384);
+  font-family: "Space Grotesk", sans-serif;
+  color: #f7f0ff;
+  padding: 30px 20px;
+}
+
+.main {
+  max-width: 640px;
+  margin: 0 auto;
+  animation: fadeUp 0.75s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Header */
+.header {
+  margin-top: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+#logoutBtn {
+  background: #f7f0ff;
+  color: #1f1a3b;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: 0.3s;
+  outline: none;
+  border: none;
+}
+
+#logoutBtn:hover {
+  background-color: #480de0;
+  color: white;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Input Area */
+.input-area {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.input-area input {
+  flex: 1;
+  padding: 14px 18px;
+  border: none;
+  outline: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-family: "Space Grotesk", sans-serif;
+  background: rgba(255,255,255,0.12);
+  color: #f7f0ff;
+  border: 1px solid rgba(255,255,255,0.18);
+  transition: 0.3s;
+}
+
+.input-area input::placeholder {
+  color: rgba(255,255,255,0.45);
+}
+
+.input-area input:focus {
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+
+.input-area select {
+  padding: 14px 8px;
+  border: none;
+  outline: none;
+  border-radius: 14px;
+  font-size: 0.9rem;
+  font-family: "Space Grotesk", sans-serif;
+  background: rgba(255,255,255,0.12);
+  color: #f7f0ff;
+  border: 1px solid rgba(255,255,255,0.18);
+  cursor: pointer;
+}
+
+.select-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.select-wrapper::after {
+  content: "\f078"; /* Font Awesome chevron-down */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 0.75rem;
+  color: #f7f0ff;
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* lets clicks pass through to the select */
+}
+
+#prioritySelect {
+  appearance: none;        /* hides native arrow */
+  -webkit-appearance: none;
+  padding: 14px 40px 14px 16px; /* extra right padding for custom arrow */
+  padding-right: 40px;
+}
+
+.input-area select option {
+  background: #24205a;
+  color: #f7f0ff;
+}
+
+#addBtn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: "Space Grotesk", sans-serif;
+  background: #f7f0ff;
+  color: #1f1a3b;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#addBtn:hover {
+  background-color: #480de0;
+  color: white;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.filter-btn {
+  padding: 8px 18px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 20px;
+  background: transparent;
+  color: rgba(255,255,255,0.6);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: rgba(255,255,255,0.15);
+  color: #f7f0ff;
+}
+
+/* Task Counter */
+.task-counter {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 16px;
+}
+
+/* Task List */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 50px 20px;
+  color: rgba(255,255,255,0.3);
+  font-size: 1rem;
+}
+
+.empty-state i {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+/* Task Card */
+.task-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+  animation: fadeUp 0.3s ease;
+}
+
+.task-card:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+.task-card.completed .task-text {
+  text-decoration: line-through;
+  opacity: 0.45;
+}
+
+/* Checkbox */
+.task-card input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #a78bfa;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* Task Text */
+.task-text {
+  flex: 1;
+  font-size: 1rem;
+}
+
+/* Priority Badge */
+.priority-badge {
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.priority-badge.low { background: rgba(74,222,128,0.2); color: #4ade80; }
+.priority-badge.medium { background: rgba(250,204,21,0.2); color: #facc15; }
+.priority-badge.high { background: rgba(248,113,113,0.2); color: #f87171; }
+
+/* Delete Button */
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,0.35);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  border-radius: 8px;
+  transition: 0.3s;
+  flex-shrink: 0;
+}
+
+.delete-btn:hover {
+  color: #f87171;
+  background: rgba(248,113,113,0.15);
+}
+
+/* Footer */
+.footer {
+  margin-top: 60px;
+  padding: 20px 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.82rem;
+}
+
+.footer-sub {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.footer i {
+  color: #f87171;
+  font-size: 0.75rem;
+  margin: 0 2px;
+}
+
+
+/* Mobile Responsiveness */
+@media (max-width: 480px) {
+
+  body {
+    padding: 20px 16px;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .input-area {
+    flex-wrap: wrap;
+  }
+
+  .input-area input {
+    width: 100%;
+    flex: unset;
+  }
+
+  .select-wrapper {
+    flex: 1;
+  }
+
+  #prioritySelect {
+    width: 100%;
+  }
+
+  #addBtn {
+    width: 100%;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .task-card {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .priority-badge {
+    font-size: 0.7rem;
+  }
+
+  .footer {
+    margin-top: 40px;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .header h1 {
+    font-size: 1.3rem;
+  }
+
+  #addBtn {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+}
