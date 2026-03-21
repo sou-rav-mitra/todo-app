@@ -110,7 +110,7 @@ body {
 }
 
 .select-wrapper::after {
-  content: "\f078"; /* Font Awesome chevron-down */
+  content: "\f078"; 
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
   font-size: 0.75rem;
@@ -119,13 +119,13 @@ body {
   right: 14px;
   top: 50%;
   transform: translateY(-50%);
-  pointer-events: none; /* lets clicks pass through to the select */
+  pointer-events: none; 
 }
 
 #prioritySelect {
-  appearance: none;        /* hides native arrow */
+  appearance: none;        
   -webkit-appearance: none;
-  padding: 14px 40px 14px 16px; /* extra right padding for custom arrow */
+  padding: 14px 40px 14px 16px; 
   padding-right: 40px;
 }
 
@@ -179,21 +179,21 @@ body {
   color: #f7f0ff;
 }
 
-/* Task Counter */
+
 .task-counter {
   font-size: 0.85rem;
   color: rgba(255,255,255,0.5);
   margin-bottom: 16px;
 }
 
-/* Task List */
+
 .task-list {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* Empty State */
+
 .empty-state {
   text-align: center;
   padding: 50px 20px;
@@ -207,7 +207,7 @@ body {
   display: block;
 }
 
-/* Task Card */
+
 .task-card {
   display: flex;
   align-items: center;
@@ -230,7 +230,7 @@ body {
   opacity: 0.45;
 }
 
-/* Checkbox */
+
 .task-card input[type="checkbox"] {
   width: 18px;
   height: 18px;
@@ -239,13 +239,13 @@ body {
   flex-shrink: 0;
 }
 
-/* Task Text */
+
 .task-text {
   flex: 1;
   font-size: 1rem;
 }
 
-/* Priority Badge */
+
 .priority-badge {
   font-size: 0.75rem;
   padding: 4px 10px;
@@ -258,7 +258,7 @@ body {
 .priority-badge.medium { background: rgba(250,204,21,0.2); color: #facc15; }
 .priority-badge.high { background: rgba(248,113,113,0.2); color: #f87171; }
 
-/* Delete Button */
+
 .delete-btn {
   background: transparent;
   border: none;
@@ -276,7 +276,7 @@ body {
   background: rgba(248,113,113,0.15);
 }
 
-/* Footer */
+
 .footer {
   margin-top: 60px;
   padding: 20px 0;
@@ -299,7 +299,7 @@ body {
 }
 
 
-/* Mobile Responsiveness */
+/* mobile responsiveness */
 @media (max-width: 480px) {
 
   body {
