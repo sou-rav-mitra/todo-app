@@ -12,7 +12,7 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
   window.location.href = "index.html";
 });
 
-// Load tasks from localStorage
+
 const username = localStorage.getItem("username");
 const taskKey = `tasks_${username}`;
 let tasks = JSON.parse(localStorage.getItem(taskKey)) || [];
@@ -32,7 +32,7 @@ function renderTasks() {
     return true;
   });
 
-  // Clear existing cards (keep empty state)
+  
   taskList.innerHTML = "";
 
   if (filtered.length === 0) {
@@ -68,7 +68,7 @@ function updateCounter() {
     `${completed} of ${total} task${total !== 1 ? "s" : ""} completed`;
 }
 
-// Add task
+
 document.getElementById("addBtn").addEventListener("click", addTask);
 document.getElementById("taskInput").addEventListener("keydown", (e) => {
   if (e.key === "Enter") addTask();
@@ -87,7 +87,7 @@ function addTask() {
   input.value = "";
 }
 
-// Complete / Delete (event delegation)
+
 document.getElementById("taskList").addEventListener("click", (e) => {
   const id = parseInt(e.target.closest("[data-id]")?.dataset.id);
   if (!id) return;
@@ -104,7 +104,7 @@ document.getElementById("taskList").addEventListener("click", (e) => {
   renderTasks();
 });
 
-// Filters
+
 document.querySelectorAll(".filter-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     document
@@ -116,5 +116,4 @@ document.querySelectorAll(".filter-btn").forEach((btn) => {
   });
 });
 
-// Initial render
 renderTasks();
